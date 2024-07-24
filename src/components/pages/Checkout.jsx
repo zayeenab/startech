@@ -15,7 +15,7 @@ function Checkout() {
     const address = e.target.elements.address.value;
 
     try {
-      const res = await fetch("https://startech-ecom-api-t2fv.onrender.com/payment/initiate", {
+      const res = await fetch("https://startech-ecom-api-t2fv.onrender.com/api/payment/initiate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
