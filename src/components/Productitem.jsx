@@ -14,7 +14,7 @@ function Productitem({item}) {
   return (
     <div className="mb-5 border-2 border-black w-max rounded-lg shadow-lg shadow-blue-500">
         <Link to={`/detail/${item._id}`}>
-        <img src={"http://localhost:8000/" + item.img} alt="" className="h-[200px] w-[250px] rounded-lg object-cover"/>
+        <img src={"https://startech-ecom-api-t2fv.onrender.com/" + item.img} alt="" className="h-[200px] w-[250px] rounded-lg object-cover"/>
         </Link>
         <div className="text-center my-5">
             <p className="text-xl">{item.name}</p>

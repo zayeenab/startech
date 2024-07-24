@@ -32,7 +32,7 @@ function Cart() {
 
               <td className="flex justify-center">
                 <img
-                  src={"http://localhost:8000/" + item.product.img}
+                  src={"https://startech-ecom-api-t2fv.onrender.com/" + item.product.img}
                   alt=""
                   className="h-[50px]"
                 />

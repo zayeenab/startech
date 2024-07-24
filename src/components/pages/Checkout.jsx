@@ -15,7 +15,7 @@ function Checkout() {
     const address = e.target.elements.address.value;
 
     try {
-      const res = await fetch("http://localhost:8000/api/payment/initiate", {
+      const res = await fetch("https://startech-ecom-api-t2fv.onrender.com/payment/initiate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ function Checkout() {
                   <td>{item.product?.name}</td>
                   <td>
                     <img
-                      src={"http://localhost:8000/" + item.product?.img}
+                      src={"https://startech-ecom-api-t2fv.onrender.com/" + item.product?.img}
                       alt=""
                       className="h-[70px]"
                     />
