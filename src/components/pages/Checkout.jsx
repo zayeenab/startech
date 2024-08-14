@@ -30,93 +30,92 @@ function Checkout() {
           address,
         }),
       });
-      const data = await res.json();
+      const data = await res.json()
       if (res.ok) {
-        window.location.href = data.link;
-      } else {
-        console.error(data.msg || "Failed to initiate payment");
+        window.location.href = data.link
+      }else {
+        console.error(data.msg || "Failed to intitiate payment");
       }
     } catch (error) {
-      console.error(error);
+        console.log(error);
     }
   };
 
   return (
-    <div className="my-8 px-4 lg:px-16">
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="lg:w-1/2 w-full">
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="p-4 text-left">Name</th>
-                <th className="p-4 text-left">Img</th>
-                <th className="p-4 text-left">Price</th>
-                <th className="p-4 text-left">Quantity</th>
-                <th className="p-4 text-left">Amount</th>
-              </tr>
+    <div>
+      <div className="flex w-[80%] mx-auto justify-around my-[5%]">
+        <div className="w-[50%]">
+          <table className="w-[90%] mx-auto">
+            <thead>
+              <th>Name</th>
+              <th>Img</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Amount</th>
             </thead>
             <tbody className="text-center">
               {cartItems.products?.map((item) => (
-                <tr className="border-b" key={item._id}>
-                  <td className="p-4">{item.product?.name}</td>
-                  <td className="p-4">
+                <tr className="border-b-2" key={item._id}>
+                  <td>{item.product?.name}</td>
+                  <td>
                     <img
                       src={"https://startech-ecom-api-t2fv.onrender.com/" + item.product?.img}
-                      alt={item.product?.name}
-                      className="h-16 w-16 object-cover mx-auto"
+                      alt=""
+                      className="h-[70px]"
                     />
                   </td>
-                  <td className="p-4">₦{item.product?.price}</td>
-                  <td className="p-4">{item.quantity}</td>
-                  <td className="p-4">₦{item.amount}</td>
+                  <td>₦{item.product?.price}</td>
+                  <td>{item.quantity}</td>
+                  <td>₦{item.amount}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <div className="flex justify-between mt-4">
-            <p className="text-xl font-semibold">Total Amount: ₦{totalAmount()}</p>
+          <div className="flex justify-between mt-[3%]">
+            <div>
+              <p className="text-xl">Total Amount: ₦{totalAmount()}</p>
+            </div>
           </div>
         </div>
-        <div className="lg:w-1/2 w-full">
-          <h1 className="text-center mb-4 text-2xl font-bold">Delivery Information</h1>
-          <form onSubmit={handleCheckout}>
-            <div className="mb-4">
+        <div className="w-[50%]">
+          <h1 className="text-center mb-[10px] text-2xl font-bold">
+            Delivery Information
+          </h1>
+          <form onSubmit={(e)=> handleCheckout(e)}>
+            <div className="mb-3">
               <input
                 type="text"
                 name="firstName"
-                className="w-full p-3 border border-gray-300 rounded shadow-sm"
+                className=" w-full p-[10px] border-b-[1px] shadow-sm border-stone-500 "
                 placeholder="First Name"
-                required
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-3">
               <input
                 type="text"
                 name="lastName"
-                className="w-full p-3 border border-gray-300 rounded shadow-sm"
+                className=" w-full p-[10px] border-b-[1px] shadow-sm border-stone-500 "
                 placeholder="Last Name"
-                required
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-3">
               <input
                 type="text"
                 name="phone"
-                className="w-full p-3 border border-gray-300 rounded shadow-sm"
+                className=" w-full p-[10px] border-b-[1px] shadow-sm border-stone-500 "
                 placeholder="Phone Number"
-                required
               />
             </div>
-            <div className="mb-4">
+            <div>
               <textarea
                 name="address"
-                className="w-full p-3 border border-gray-300 rounded shadow-sm"
+                id=""
+                className=" w-full p-[10px] border-b-[1px] shadow-sm border-stone-500 "
                 placeholder="Delivery Address"
-                required
               ></textarea>
             </div>
-            <div className="flex justify-center">
-              <button type="submit" className="bg-blue-950 text-white py-2 px-4 rounded-lg hover:bg-blue-800">
+            <div>
+              <button className="bg-blue-950 p-[10px] text-white rounded-lg">
                 Pay Now
               </button>
             </div>

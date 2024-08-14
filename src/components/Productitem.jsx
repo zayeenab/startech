@@ -1,22 +1,30 @@
-import { useContext } from 'react';
-import EcomContext from '../context/EcomContext';
-import Productitem from './Productitem';
+ import { Link, useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import EcomContext from "../context/EcomContext"
 
-function Featured() {
-    const { featured } = useContext(EcomContext);
+function Productitem({item}) {
+  const { addToCart, isAuthenticated } = useContext(EcomContext)
+  const redirect = useNavigate();
 
-    return (
-        <div className="px-4 sm:px-6 lg:px-8">
-            <h1 className="text-center py-4 text-lg sm:text-xl md:text-2xl font-bold text-blue-950">
-                Featured Products
-            </h1>
-            <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {featured.map((item) => (
-                    <Productitem item={item} key={item._id} />
-                ))}
-            </div>
+  const login = () => {
+    if (!isAuthenticated) {
+      redirect("/login")
+    }
+  }
+  return (
+    <div className="mb-5 border-2 border-black w-max rounded-lg shadow-lg shadow-blue-500">
+        <Link to={`/detail/${item._id}`}>
+        <img src={"https://startech-ecom-api-t2fv.onrender.com/" + item.img} alt="" className="h-[200px] w-[250px] rounded-lg object-cover"/>
+        </Link>
+        <div className="text-center my-5">
+            <p className="text-xl">{item.name}</p>
+            <p className="py-3 text-xl">₦{item.price}</p>
+            <p
+            className="bg-blue-950 text-white rounded p-[10px] cursor-pointer" 
+            onClick={isAuthenticated ? ()=> addToCart(item._id) : login}> Add to Cart </p>
         </div>
-    );
+    </div>
+  )
 }
 
-export default Featured;
+export default Productitem

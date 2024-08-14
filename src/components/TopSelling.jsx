@@ -7,8 +7,8 @@ function TopSelling() {
 
   return (
     <div className='mx-[5%]'>
-        <h1 className='text-center py-4 text-lg sm:text-xl md:text-2xl font-bold text-blue-950'>Top Selling Product</h1>
-    <div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+        <h1 className='py-[10px] text-xl font-bold text-blue-950'>Top Selling Product</h1>
+    <div className='grid md:grid-cols-4 grid-cols-2'>
         {topSelling.map((item)=>(
             <Productitem item={item} key={item._id}/>
         ))}
