@@ -6,13 +6,13 @@ import { FaTiktok } from "react-icons/fa";
 
 function Footer() {
   return (
-  <div className="bg-blue-950 px-[5%] py-[3%] mt-10 flex justify-between text-white items-center">
-    <div>
-        <p className="text-[24px] text-white font-bold">Star Tech</p>
+  <div className="bg-blue-950 px-4 py-6 mt-10 flex flex-col md:flex-row justify-between text-white items-center">
+    <div className="m-[35px] md:mb-0 text-center md:text-left">
+        <p className="text-[24px] text-white md:text-2xl mb-2 font-bold">Star Tech</p>
     </div>
-    <div className="mb-[10px] text-lg">
+    <div className="mb-[10px] text-lg md:mb-0 text-center md:text-left">
         <h3>Useful Links</h3>
-        <ul>
+        <ul className="space-y-2">
             <li>
                 <a href="">Home</a>
             </li>
@@ -29,7 +29,7 @@ function Footer() {
     </div>
     <div>
     <h3>Follow us on our socials</h3>
-    <ul className="flex gap-[25px] text-2xl justify-center">
+    <ul className="flex justify-center  gap-4 text-2xl md:text-2xl">
         <li><FaFacebook /></li>
         <li><AiFillInstagram /></li>
         <li><FaSquareXTwitter /></li>

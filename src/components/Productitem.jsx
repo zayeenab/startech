@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+ import { Link, useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import EcomContext from "../context/EcomContext"
 
@@ -19,7 +19,6 @@ function Productitem({item}) {
         <div className="text-center my-5">
             <p className="text-xl">{item.name}</p>
             <p className="py-3 text-xl">₦{item.price}</p>
-
             <p
             className="bg-blue-950 text-white rounded p-[10px] cursor-pointer" 
             onClick={isAuthenticated ? ()=> addToCart(item._id) : login}> Add to Cart </p>

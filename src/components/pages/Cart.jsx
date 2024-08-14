@@ -28,7 +28,7 @@ function Cart() {
                 </button>
               </td>
 
-              <td>₦{item.product.name}</td>
+              <td>{item.product.name}</td>
 
               <td className="flex justify-center">
                 <img
